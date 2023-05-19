@@ -1,0 +1,89 @@
+﻿<Window x:Class="WpfApp1.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp1"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="600" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+            
+            <Label Content="Helyszín:"
+                   VerticalAlignment="Center"
+                   Margin="0,0,5,0"/>
+            
+            <TextBox x:Name="txtadat"
+                     Width="80"
+                     Height="30"/>
+            
+            <Button x:Name="btnPowerUnits"
+                    Content="Egységek"
+                    Click="BtnPowerUnits_Click" 
+                    Margin="10,0,0,0"/>
+            
+            <Button x:Name="btnTotalCount"
+                    Content="Összes szám"
+                    Click="BtnTotalCount_Click"
+                    Margin="10,0,0,0"/>
+            
+            <Button x:Name="btnCategorize"
+                    Content="Kategóriák"
+                    Click="BtnCategorize_Click"
+                    Margin="10,0,0,0"/>
+        
+        </StackPanel>
+        
+        <ListBox x:Name="listBoxPowerUnits"
+                 Grid.Row="1"
+                 Grid.Column="0" 
+                 Margin="10" 
+                 Width="300"/>
+        
+        <DataGrid x:Name="dataGridSzeleromuk"
+                  Grid.Row="1"
+                  Grid.Column="0"
+                  AutoGenerateColumns="True" 
+                  Margin="10"/>
+       
+        <Label x:Name="lblTotalPowerUnits" 
+               Grid.Row="1"
+               Grid.Column="0"
+               HorizontalAlignment="Right"
+               Margin="0,0,10,0"/>
+        
+        <StackPanel Grid.Row="1"
+                    Grid.Column="1" 
+                    Orientation="Vertical"
+                    Margin="10">
+            
+            <Button x:Name="btnAveragePerformance"
+                    Content="Átlagos teljesítmény (2010)"
+                    Click="BtnAveragePerformance_Click"
+                    Margin="0,0,0,5"/>
+            
+            <Button x:Name="btnMaxPerformance"
+                    Content="Legnagyobb teljesítmény"
+                    Click="BtnMaxPerformance_Click" 
+                    Margin="0,0,0,5"/>
+            
+            <Button x:Name="btnGenerateReport"
+                    Content="Jelentés generálása"
+                    Click="BtnGenerateReport_Click"/>
+        </StackPanel>
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="5">
+            
+            
+        </StackPanel>
+    </Grid>
+</Window>
