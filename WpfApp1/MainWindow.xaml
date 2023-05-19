@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="600" Width="800">
+        Title="MainWindow" Height="1000" Width="800">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition/>
-            <RowDefinition/>
+            <RowDefinition Height="200"/>
+            <RowDefinition Height="300"/>
             <RowDefinition/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
@@ -17,7 +17,7 @@
             <ColumnDefinition/>
             
         </Grid.ColumnDefinitions>
-        <StackPanel Grid.Row="0" Orientation="Horizontal" Margin="5">
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="5">
             
             <Label Content="Helyszín:"
                    VerticalAlignment="Center"
@@ -27,63 +27,112 @@
                      Width="80"
                      Height="30"/>
             
-            <Button x:Name="btnPowerUnits"
+            <Label x:Name="lblegysegszam" 
+                Content=""
+                   Margin="5"
+                   Height="40"
+                   Width="50"></Label>
+            
+            <Button x:Name="btnegysegszam"
                     Content="Egységek"
-                    Click="BtnPowerUnits_Click" 
-                    Margin="10,0,0,0"/>
+                    Click="Btnegysegszam_Click" 
+                    Margin="10"
+                    Height="50"/>
+
+            <Label x:Name="lblosszes" 
+                   Content=""
+                   Margin="5"
+                   Height="40"
+                   Width="50"></Label>
+
+            <Button x:Name="btnosszesadat"
+                    Content="Összes adat"
+                    Click="Btnosszes_Click"
+                    Margin="10"
+                    Height="50"/>
+
+            <Label x:Name="lblkategoria" 
+                Content="valami"
+                   Margin="5"
+                   Height="40"
+                   Width="50"></Label>
             
-            <Button x:Name="btnTotalCount"
-                    Content="Összes szám"
-                    Click="BtnTotalCount_Click"
-                    Margin="10,0,0,0"/>
-            
-            <Button x:Name="btnCategorize"
+            <Button x:Name="btnkategoria"
                     Content="Kategóriák"
-                    Click="BtnCategorize_Click"
-                    Margin="10,0,0,0"/>
+                    Click="Btnkategoria_Click"
+                    Margin="10"
+                    Height="50"/>
         
         </StackPanel>
         
-        <ListBox x:Name="listBoxPowerUnits"
+        <ListBox x:Name="lbadatok"
                  Grid.Row="1"
-                 Grid.Column="0" 
+                 Grid.Column="1" 
                  Margin="10" 
-                 Width="300"/>
+                 Width="300" 
+                 SelectionChanged="lbadatok_SelectionChanged"
+                 HorizontalAlignment="Right"/>
         
-        <DataGrid x:Name="dataGridSzeleromuk"
-                  Grid.Row="1"
-                  Grid.Column="0"
-                  AutoGenerateColumns="True" 
-                  Margin="10"/>
+        
        
         <Label x:Name="lblTotalPowerUnits" 
                Grid.Row="1"
-               Grid.Column="0"
-               HorizontalAlignment="Right"
-               Margin="0,0,10,0"/>
+               Grid.Column="1"
+               Width="70"
+               HorizontalAlignment="left"
+               Margin="10"/>
         
         <StackPanel Grid.Row="1"
-                    Grid.Column="1" 
+                    Grid.Column="0" 
                     Orientation="Vertical"
                     Margin="10">
-            
-            <Button x:Name="btnAveragePerformance"
-                    Content="Átlagos teljesítmény (2010)"
-                    Click="BtnAveragePerformance_Click"
-                    Margin="0,0,0,5"/>
-            
-            <Button x:Name="btnMaxPerformance"
+
+            <Label x:Name="lblatlagteljesitmeny" 
+                Content=""
+                   Margin="5"
+                   Height="30"
+                   Width="100"></Label>
+
+            <Button x:Name="btnatlagosteljesitmeny"
+                    Content="2010-es Átlag teljesítmény "
+                    Click="Btnatlagteljesitmeny_Click"
+                    Margin="5"
+                    Width="200"/>
+
+            <Label x:Name="lbllegnagyobbteljesitmeny" 
+                Content=""
+                   Margin="5"
+                   Height="30"
+                   Width="100"></Label>
+
+            <Button x:Name="btnlegnagyobbteljesitmeny"
                     Content="Legnagyobb teljesítmény"
-                    Click="BtnMaxPerformance_Click" 
-                    Margin="0,0,0,5"/>
-            
-            <Button x:Name="btnGenerateReport"
+                    Click="Btnlegnagyobbteljesitmeny_Click" 
+                    Margin="5"
+                    Width="200"/>
+
+            <Label x:Name="lbljelentes" 
+                Content=""
+                   Margin="5"
+                   Height="30"
+                   Width="100"></Label>
+
+            <Button x:Name="btnjelentes"
                     Content="Jelentés generálása"
-                    Click="BtnGenerateReport_Click"/>
+                    Click="Btnjelentes_Click"
+                    Width="200"
+                    Margin="5"/>
         </StackPanel>
         <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="5">
-            
-            
+            <DataGrid x:Name="dataGridSzeleromu"
+                  Grid.Row="1"
+                  Grid.Column="0" 
+                  Margin="20,5,20,5"
+                  Width="750"
+                  HorizontalAlignment="Center"
+                      SelectionChanged="dataGridSzeleromu_SelectionChanged"
+                      />
+                  
         </StackPanel>
     </Grid>
 </Window>
